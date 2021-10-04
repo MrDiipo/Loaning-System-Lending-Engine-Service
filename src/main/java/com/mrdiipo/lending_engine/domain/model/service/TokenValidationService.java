@@ -22,7 +22,7 @@ public class TokenValidationService {
     }
 
 
-    public User validateTokenAndGetUSer(final String token){
+    public User validateTokenAndGetUser(final String token){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(HttpHeaders.AUTHORIZATION, token);
         HttpEntity httpEntity = new HttpEntity(httpHeaders);
