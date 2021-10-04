@@ -1,20 +1,19 @@
-package com.mrdiipo.profile.domain.service;
+package com.mrdiipo.lending_engine.domain.service;
 
-import com.mrdiipo.profile.appliication.LoanRequest;
-import com.mrdiipo.profile.domain.exception.UserNotFound;
-import com.mrdiipo.profile.domain.model.LoanApplication;
-import com.mrdiipo.profile.domain.model.User;
-import com.mrdiipo.profile.domain.repository.UserRepository;
+import com.mrdiipo.lending_engine.domain.repository.UserRepository;
+import com.mrdiipo.lending_engine.appliication.model.LoanRequest;
+import com.mrdiipo.lending_engine.domain.exception.UserNotFound;
+import com.mrdiipo.lending_engine.domain.model.LoanApplication;
+import com.mrdiipo.lending_engine.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
 import java.util.Optional;
 
 @Component
 public class LoanAppAdapter {
 
-    private final   UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public LoanAppAdapter(UserRepository userRepository) {
@@ -25,7 +24,7 @@ public class LoanAppAdapter {
         Optional<User> userOptional = userRepository.findById(request.getBorrowerId());
 
         if (userOptional.isPresent()){
-            return new LoanApplication(request.getAmount(), userOptional.get(), Duration.ofDays(request.getDaysToRepay()), request.getInterestRate());
+            return new LoanApplication(request.getAmount(), userOptional.get(), request.getDaysToRepay(), request.getInterestRate());
         } else {
             throw new UserNotFound(request.getBorrowerId());
         }

@@ -1,6 +1,6 @@
-package com.mrdiipo.profile.domain.repository;
+package com.mrdiipo.lending_engine.domain.repository;
 
-import com.mrdiipo.profile.domain.model.User;
+import com.mrdiipo.lending_engine.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

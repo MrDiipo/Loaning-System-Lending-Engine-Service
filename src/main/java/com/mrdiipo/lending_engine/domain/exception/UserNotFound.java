@@ -1,4 +1,4 @@
-package com.mrdiipo.profile.domain.exception;
+package com.mrdiipo.lending_engine.domain.exception;
 
 public class UserNotFound extends RuntimeException{
 

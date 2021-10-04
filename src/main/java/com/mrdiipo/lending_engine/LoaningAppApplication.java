@@ -1,7 +1,7 @@
-package com.mrdiipo.profile;
+package com.mrdiipo.lending_engine;
 
-import com.mrdiipo.profile.domain.model.User;
-import com.mrdiipo.profile.domain.repository.UserRepository;
+import com.mrdiipo.lending_engine.domain.repository.UserRepository;
+import com.mrdiipo.lending_engine.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

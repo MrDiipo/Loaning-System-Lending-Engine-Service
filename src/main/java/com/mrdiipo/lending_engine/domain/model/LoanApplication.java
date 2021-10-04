@@ -1,9 +1,8 @@
-package com.mrdiipo.profile.domain.model;
+package com.mrdiipo.lending_engine.domain.model;
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.Duration;
 
 @EqualsAndHashCode
 @ToString
@@ -21,19 +20,19 @@ public final class LoanApplication {
     @ManyToOne
     private User borrower;
 
-    private  Duration repaymentTerm;
-
+    private int repaymentTermInDays;
     private  double interestRate;
 
-    public LoanApplication(Long id, int amount, User borrower, Duration repaymentTerm, double interestRate) {
-        this.id = id;
+    public LoanApplication(int amount, User borrower, int repaymentTermInDays, double interestRate) {
         this.amount = amount;
         this.borrower = borrower;
-        this.repaymentTerm = repaymentTerm;
+        this.repaymentTermInDays = repaymentTermInDays;
         this.interestRate = interestRate;
     }
 
     public LoanApplication() {
 
     }
+
+
 }

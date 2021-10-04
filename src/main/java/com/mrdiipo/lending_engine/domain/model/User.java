@@ -1,4 +1,4 @@
-package com.mrdiipo.profile.domain.model;
+package com.mrdiipo.lending_engine.domain.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

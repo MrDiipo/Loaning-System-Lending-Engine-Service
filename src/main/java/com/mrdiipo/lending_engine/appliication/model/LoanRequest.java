@@ -1,11 +1,8 @@
-package com.mrdiipo.profile.appliication;
+package com.mrdiipo.lending_engine.appliication.model;
 
-import com.mrdiipo.profile.domain.model.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-
-import java.time.Duration;
 
 @Data
 @EqualsAndHashCode
@@ -14,10 +11,10 @@ public class LoanRequest {
 
     private final int amount;
     private final Long borrowerId;
-    private final Duration daysToRepay;
+    private final int daysToRepay;
     private final double interestRate;
 
-    public LoanRequest(int amount, Long borrowerId, Duration daysToRepay, double interestRate) {
+    public LoanRequest(int amount, Long borrowerId, int daysToRepay, double interestRate) {
         this.amount = amount;
         this.borrowerId = borrowerId;
         this.daysToRepay = daysToRepay;
