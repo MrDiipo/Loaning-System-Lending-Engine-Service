@@ -1,19 +1,23 @@
 package com.mrdiipo.lending_engine.domain.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @ManyToOne
     private User borrower;
+    @ManyToOne
     private User lender;
     private int amount;
     private double interestRate;

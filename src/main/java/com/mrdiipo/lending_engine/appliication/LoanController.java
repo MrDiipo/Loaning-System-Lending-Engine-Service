@@ -33,26 +33,25 @@ public class LoanController {
         this.tokenValidationService = tokenValidationService;
     }
 
-/**Post Mappings*/
+/*Post Mappings*/
 
     @PostMapping("/loan/request")
     public void requestLoan(@RequestBody final LoanRequest loanRequest, HttpServletRequest request) {
-        tokenValidationService.validateTokenAndGetUser(request.getHeader(HttpHeaders.AUTHORIZATION));
-        LoanApplication loanApplication = loanAppAdapter.transform(loanRequest);
+        User borrower = tokenValidationService.validateTokenAndGetUser(request.getHeader(HttpHeaders.AUTHORIZATION));
+        LoanApplication loanApplication = loanAppAdapter.transform(loanRequest, borrower);
         loanApplicationRepository.save(loanApplication);
     }
 
-    @PostMapping("/loan/accept/{lenderId}/{loanApplicationId}")
-    public void acceptLoan(@PathVariable final String lenderId,
-                           @PathVariable final String loanApplicationId,
+    @PostMapping("/loan/accept/{loanApplicationId}")
+    public void acceptLoan(@PathVariable final String loanApplicationId,
                            HttpServletRequest request){
-        tokenValidationService.validateTokenAndGetUser(request.getHeader(HttpHeaders.AUTHORIZATION));
-        loanService.acceptLoan(Long.parseLong(loanApplicationId), lenderId);
+        User lender = tokenValidationService.validateTokenAndGetUser(request.getHeader(HttpHeaders.AUTHORIZATION));
+        loanService.acceptLoan(Long.parseLong(loanApplicationId), String.valueOf(userRepository.findById(lender.getUsername())));
 
     }
 
 
-/**Get Mappings*/
+/*Get Mappings*/
 
     @GetMapping("/users")
     public List<User> findUsers(HttpServletRequest request) {
