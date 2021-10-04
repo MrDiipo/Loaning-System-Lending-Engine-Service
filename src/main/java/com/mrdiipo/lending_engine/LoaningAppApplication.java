@@ -19,7 +19,7 @@ public class LoaningAppApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        userRepository.save(new User(1L, "John", "B", 27, "Software Developer"));
-        userRepository.save(new User(2L, "Peter", "C", 21, "Pilot"));
+        userRepository.save(new User("1L", "John", "B", 27, "Software Developer"));
+        userRepository.save(new User("2L", "Peter", "C", 21, "Pilot"));
     }
 }

@@ -13,19 +13,19 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class User {
+public final class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "username", nullable = false)
+    private String username;
 
     private  String firstName;
     private  String lastName;
     private  int age;
     private  String occupation;
 
-    public User(Long id, String firstName, String lastName, int age, String occupation) {
-        this.id = id;
+    public User(String username, String firstName, String lastName, int age, String occupation) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
