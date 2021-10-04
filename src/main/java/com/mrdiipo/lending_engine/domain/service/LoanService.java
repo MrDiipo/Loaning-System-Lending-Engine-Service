@@ -25,10 +25,9 @@ public class LoanService {
         this.loanAppAdapter = loanAppAdapter;
     }
 
-    public void acceptLoan(final long loanApplicationId, final long lenderId){
+    public void acceptLoan(final long loanApplicationId, final String  lenderId){
 
-        User lender = userRepository.findById(
-                lenderId).orElseThrow(() -> new UserNotFound(lenderId));
+        User lender = userRepository.findById(lenderId).orElseThrow(() -> new UserNotFound(lenderId));
 
         LoanApplication loanApplication = loanApplicationRepository.findById(loanApplicationId)
                 .orElseThrow(() -> new LoanApplicationNotFoundException(loanApplicationId));
