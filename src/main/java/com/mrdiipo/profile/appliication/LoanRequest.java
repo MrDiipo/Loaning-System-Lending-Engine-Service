@@ -15,12 +15,12 @@ public class LoanRequest {
     private final int amount;
     private final Long borrowerId;
     private final Duration daysToRepay;
-    private final double intrestRate;
+    private final double interestRate;
 
     public LoanRequest(int amount, Long borrowerId, Duration daysToRepay, double interestRate) {
         this.amount = amount;
         this.borrowerId = borrowerId;
         this.daysToRepay = daysToRepay;
-        this.intrestRate = interestRate;
+        this.interestRate = interestRate;
     }
 }

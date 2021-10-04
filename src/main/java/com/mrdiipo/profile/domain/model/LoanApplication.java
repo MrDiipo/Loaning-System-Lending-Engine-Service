@@ -16,10 +16,14 @@ public final class LoanApplication {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private final int amount;
-    private final User borrower;
-    private final Duration repaymentTerm;
-    private final double interestRate;
+    private int amount;
+
+    @ManyToOne
+    private User borrower;
+
+    private  Duration repaymentTerm;
+
+    private  double interestRate;
 
     public LoanApplication(Long id, int amount, User borrower, Duration repaymentTerm, double interestRate) {
         this.id = id;
